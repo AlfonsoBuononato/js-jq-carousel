@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 // RIFERIMENTI IMMAGINE
 var next = $(".next .fa-angle-right");
-var prev = $(".prev .fa-angle-left")
+var prev = $(".prev .fa-angle-left");
 
 // RIFERIMENTO CIRCLE
 var circle = $(".nav .fa-circle");
@@ -33,11 +33,6 @@ $(document).keydown(function(event){
         prevNextImage("prev")
     }
 })
-
-circle.click(function(){
-    cambiaImmagine("change")
-})
-
 
 
 });
@@ -89,10 +84,4 @@ function prevNextImage(direzione){
         }
     }
 
-}
-/* 
-    IN QUESTA FUNZIONE VADO A DARE LOGICA AI CERCHI CHE CAMBIERANNO LE IMMAGINI AL CLICK
-*/
-function cambiaImmagine(change){
-    console.log("change");
 }
