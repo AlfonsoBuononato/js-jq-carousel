@@ -34,6 +34,10 @@ $(document).keydown(function(event){
     }
 })
 
+circle.click(function(){
+    prevNextImage($(this));
+})
+
 
 });
 
@@ -50,7 +54,8 @@ function prevNextImage(direzione){
     var imageActive = $(".images img.active");
     var imageActiveFirst = $(".images img.first");
     var imageActiveLast = $(".images img.last");
-    
+    var circleImg = $(".images img");
+
     // IMMAGINE DA RESETTARE
     imageActive.removeClass("active");
 
@@ -63,7 +68,7 @@ function prevNextImage(direzione){
 
     //DIREZIONE NEXT
     if(direzione === "next"){
-        /* NEL PASSAGGIO IF VADO A CONTROLLARE SE LA VARIABILE imageActive HA LA CLASSE "FIRST" NEL CASO IN CUI SI VERIFICA VADO AD AGGIUNGERE ALLA VARIBILE IMAGE ACTIVE LAST LA CLASSE ACTIVE IN MODO DA AVERE VISIBILE LA PRIMA IMMAGINE COSI AL CLICK SUL TASTO NEXT IL SELETTORE NON ESCE DAL NODO IMG NELL HTML MA TORNA ALLA PRIMA IMMAGINE */
+        /* NEL PASSAGGIO IF VADO A CONTROLLARE SE LA VARIABILE imageActive HA LA CLASSE "FIRST" NEL CASO IN CUI SI VERIFICA VADO AD AGGIUNGERE ALLA VARIBILE "imageActiveLast" LA CLASSE ACTIVE IN MODO DA AVERE VISIBILE LA PRIMA IMMAGINE COSI AL CLICK SUL TASTO NEXT IL SELETTORE NON ESCE DAL NODO IMG NELL HTML MA TORNA ALLA PRIMA IMMAGINE */
         if(imageActive.hasClass("last")){
             imageActiveFirst.addClass("active");
             circleActiveFirst.addClass("active");
@@ -74,7 +79,7 @@ function prevNextImage(direzione){
     }
     //DIREZIONE PREV 
     else if (direzione === "prev"){
-        /* NEL PASSAGGIO IF VADO A CONTROLLARE SE LA VARIABILE imageActive HA LA CLASSE "FIRST" NEL CASO IN CUI SI VERIFICA VADO AD AGGIUNGERE ALLA VARIBILE imageActiveLast LA CLASSE ACTIVE IN MODO DA AVERE VISIBILE LA PRIMA IMMAGINE COSI AL CLICK SUL TASTO NEXT IL SELETTORE NON ESCE DAL NODO IMG NELL HTML MA TORNA ALLA PRIMA IMMAGINE */
+        /* NEL PASSAGGIO IF VADO A CONTROLLARE SE LA VARIABILE imageActive HA LA CLASSE "FIRST" NEL CASO IN CUI SI VERIFICA VADO AD AGGIUNGERE ALLA VARIBILE "imageActiveLast" LA CLASSE ACTIVE IN MODO DA AVERE VISIBILE LA PRIMA IMMAGINE COSI AL CLICK SUL TASTO NEXT IL SELETTORE NON ESCE DAL NODO IMG NELL HTML MA TORNA ALLA PRIMA IMMAGINE */
         if(imageActive.hasClass("first")){
             imageActiveLast.addClass("active");
             circleActiveLast.addClass("active");
@@ -82,6 +87,13 @@ function prevNextImage(direzione){
             imageActive.prev("img").addClass("active");
             circleActive.prev("i").addClass("active");
         }
+    }
+    //SLIDER IMMAGINI CLICCANDO SUL CIRCLE
+    else{
+        direzione.addClass("active");
+        console.log(direzione.index());
+        var pos = direzione.index();
+        circleImg.eq(pos).addClass("active");
     }
 
 }
