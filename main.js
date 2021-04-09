@@ -35,8 +35,20 @@ $(document).keydown(function(event){
 })
 
 circle.click(function(){
-    prevNextImage($(this));
-})
+    var imageActive = $(".images img.active");
+    imageActive.removeClass("active");
+
+    var circleActive = $(".nav i.active");
+    circleActive = $(".nav i.active").removeClass("active");
+    var circleImg = $(".images .img");
+
+    $(this).addClass("active");
+    
+    var pos = $(this).index();
+    console.log(pos);
+    circleImg.eq(pos).addClass("active");
+
+});
 
 
 });
@@ -54,7 +66,7 @@ function prevNextImage(direzione){
     var imageActive = $(".images img.active");
     var imageActiveFirst = $(".images img.first");
     var imageActiveLast = $(".images img.last");
-    var circleImg = $(".images img");
+    //var circleImg = $(".images img"); DA DECOMMENTARE
 
     // IMMAGINE DA RESETTARE
     imageActive.removeClass("active");
@@ -89,11 +101,11 @@ function prevNextImage(direzione){
         }
     }
     //SLIDER IMMAGINI CLICCANDO SUL CIRCLE
-    else{
-        direzione.addClass("active");
-        console.log(direzione.index());
-        var pos = direzione.index();
-        circleImg.eq(pos).addClass("active");
-    }
+    // else{
+    //     direzione.addClass("active");
+    //     console.log(direzione.index());
+    //     var pos = direzione.index();
+    //     circleImg.eq(pos).addClass("active");
+    // } DA DECOMMENTARE
 
 }
