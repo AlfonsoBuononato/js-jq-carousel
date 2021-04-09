@@ -34,6 +34,11 @@ $(document).keydown(function(event){
     }
 })
 
+
+/* ************************
+    PARTE NON FUNZIONANTE
+****************************/
+
 circle.click(function(){
     var imageActive = $(".images img.active");
     imageActive.removeClass("active");
